@@ -52,5 +52,10 @@ namespace Phonebook
                 apartmentTB.Text = _address.Apartment;
             }
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

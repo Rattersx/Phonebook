@@ -44,6 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Address.cs" />
+    <Compile Include="Classes\People.cs" />
+    <Compile Include="Classes\PeopleGeneralInfo.cs" />
+    <Compile Include="Classes\Phone.cs" />
     <Compile Include="Components\Address Forms\AddAddressForm.cs">
       <SubType>Form</SubType>
     </Compile>

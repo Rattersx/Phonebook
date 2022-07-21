@@ -13,17 +13,11 @@ namespace Phonebook
         int _index { get; set; } // Индекс выбранного человека из списка при редактировании
         public PeopleGeneralInfo _info { get; set; } // Выбранный из списка человек при редактировании
 
-/* Конструктор добавления в список человека */
-        public AddGeneralForm(BindingList<PeopleGeneralInfo> peopleGeneralInfo)
-        {
-            InitializeComponent();
-            _peopleGeneralInfo = peopleGeneralInfo;
-        }
+        public AddGeneralForm() => InitializeComponent();
 
-/* Конструктор редактирования человека из списка */
-        public AddGeneralForm(BindingList<PeopleGeneralInfo> peopleGeneralInfo, PeopleGeneralInfo info, int index)
+        public void InitAdd(BindingList<PeopleGeneralInfo> peopleGeneralInfo) => _peopleGeneralInfo = peopleGeneralInfo;
+        public void InitEdit(BindingList<PeopleGeneralInfo> peopleGeneralInfo, PeopleGeneralInfo info, int index)
         {
-            InitializeComponent();
             _peopleGeneralInfo = peopleGeneralInfo;
             _info = info;
             _index = index;
@@ -37,9 +31,9 @@ namespace Phonebook
                 _address = _info.AddressClass;
                 _phone = _info.PhoneClass;
 
-                fioTB.Text = _info.Surname + ' ' + _info.Name + ' ' + _info.Patronymic + ' ';
+                fioTB.Text = _info.Surname + ' ' + _info.Name + ' ' + _info.Patronymic + ' ' + _info.Gender + ' ' + _info.Yearborn;
                 addressTB.Text = _info.Address;
-                phoneTB.Text = _info.Phone;
+                phoneTB.Text = _info.Phone + ", " + _info.PhoneClass.Type;
                 emailTB.Text = _info.Email;
             }
             else // Добавление
@@ -52,7 +46,8 @@ namespace Phonebook
 
         private void fioButton_Click(object sender, EventArgs e)
         {
-            PeopleListForm peopleListForm = new PeopleListForm(new PeopleSenderDelegate(PeopleSender));
+            PeopleListForm peopleListForm = new PeopleListForm();
+            peopleListForm.Init(new PeopleSenderDelegate(PeopleSender));
             peopleListForm.ShowDialog();
             
             if (_people != null)
@@ -67,7 +62,8 @@ namespace Phonebook
 
         private void addressButton_Click(object sender, EventArgs e)
         {
-            AddressListForm addressListForm = new AddressListForm(new AddressSenderDelegate(AddressSender));
+            AddressListForm addressListForm = new AddressListForm();
+            addressListForm.Init(new AddressSenderDelegate(AddressSender));
             addressListForm.ShowDialog();
 
             if (_address != null)
@@ -82,7 +78,8 @@ namespace Phonebook
 
         private void phoneButton_Click(object sender, EventArgs e)
         {
-            PhoneListForm phoneListForm = new PhoneListForm(new PhoneSenderDelegate(PhoneSender));
+            PhoneListForm phoneListForm = new PhoneListForm();
+            phoneListForm.Init(PhoneSender);
             phoneListForm.ShowDialog();
 
             if (_phone != null)
@@ -97,7 +94,12 @@ namespace Phonebook
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (_info == null)
+            if (fioTB.Text == "" && addressTB.Text == "" && phoneTB.Text == "")
+            {
+                MessageBox.Show(Properties.Resources.NoneInfoError, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (_info == null)
             {
                 _peopleGeneralInfo.Add(new PeopleGeneralInfo(_people, _address, _phone, emailTB.Text));
             }

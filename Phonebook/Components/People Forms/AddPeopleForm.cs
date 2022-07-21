@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Phonebook
@@ -14,13 +9,12 @@ namespace Phonebook
         public BindingList<People> PeopleList { get; set; } = new BindingList<People>();
         private People _people{ get; set; }
         private int _index { get; set; }
-        public AddPeopleForm(BindingList<People> peopleList) // Добавить
-        {
-            InitializeComponent();
-            PeopleList = peopleList;
-        }
 
-        public AddPeopleForm(BindingList<People> peopleList, People people, int index) // Редактировать
+        public AddPeopleForm() => InitializeComponent();
+
+        public void InitAdd(BindingList<People> peopleList) => PeopleList = peopleList;
+
+        public void InitEdit(BindingList<People> peopleList, People people, int index)
         {
             InitializeComponent();
             PeopleList = peopleList;
@@ -30,7 +24,12 @@ namespace Phonebook
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if (_people == null && GenderDetermine() != null) // Добавить
+            if (surnameTB.Text == "" && nameTB.Text == "" && patroTB.Text == "" && yearbornTB.Text == "" && !maleRB.Checked && !femaleRB.Checked)
+            {
+                MessageBox.Show(Properties.Resources.NoneInfoError, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (_people == null && GenderDetermine() != null) // Добавить
             {
                 PeopleList.Add(new People(surnameTB.Text, nameTB.Text, patroTB.Text, yearbornTB.Text, GenderDetermine()));
                 this.Close();

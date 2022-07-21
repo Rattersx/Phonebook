@@ -40,10 +40,11 @@
             this.peopleListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.peopleListFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleListBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ChoiceButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.peopleListTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleListBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.peopleListFormBindingSource1)).BeginInit();
@@ -71,7 +72,7 @@
             this.bornyearDataGridViewTextBoxColumn,
             this.genderDataGridViewTextBoxColumn});
             this.peopleListTable.DataSource = this.peopleListBindingSource2;
-            this.peopleListTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.peopleListTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.peopleListTable.Location = new System.Drawing.Point(0, 24);
             this.peopleListTable.MultiSelect = false;
             this.peopleListTable.Name = "peopleListTable";
@@ -138,50 +139,61 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.редактироватьToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.AddToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.DeleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(652, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // добавитьToolStripMenuItem
+            // AddToolStripMenuItem
             // 
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
-            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
+            this.AddToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.AddToolStripMenuItem.Text = "Добавить";
+            this.AddToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
-            // редактироватьToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
-            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.EditToolStripMenuItem.Text = "Редактировать";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
-            // удалитьToolStripMenuItem
+            // DeleteToolStripMenuItem
             // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // peopleListBindingSource1
             // 
             this.peopleListBindingSource1.DataMember = "PeopleList";
             this.peopleListBindingSource1.DataSource = this.peopleListFormBindingSource;
             // 
+            // ChoiceButton
+            // 
+            this.ChoiceButton.Location = new System.Drawing.Point(234, 277);
+            this.ChoiceButton.Name = "ChoiceButton";
+            this.ChoiceButton.Size = new System.Drawing.Size(180, 25);
+            this.ChoiceButton.TabIndex = 7;
+            this.ChoiceButton.Text = "Выбрать";
+            this.ChoiceButton.UseVisualStyleBackColor = true;
+            this.ChoiceButton.Click += new System.EventHandler(this.ChoiceButton_Click);
+            // 
             // PeopleListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 268);
+            this.ClientSize = new System.Drawing.Size(652, 314);
+            this.Controls.Add(this.ChoiceButton);
             this.Controls.Add(this.peopleListTable);
             this.Controls.Add(this.menuStrip1);
             this.Name = "PeopleListForm";
-            this.Text = "PeopleListForm";
+            this.Text = "Список людей";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PeopleListForm_FormClosing);
             this.Load += new System.EventHandler(this.PeopleListForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.peopleListTable)).EndInit();
@@ -201,9 +213,9 @@
 
         private System.Windows.Forms.DataGridView peopleListTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.BindingSource peopleListBindingSource;
         private System.Windows.Forms.BindingSource peopleListFormBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn surnameDataGridViewTextBoxColumn;
@@ -214,5 +226,6 @@
         private System.Windows.Forms.BindingSource peopleListBindingSource2;
         private System.Windows.Forms.BindingSource peopleListFormBindingSource1;
         private System.Windows.Forms.BindingSource peopleListBindingSource1;
+        private System.Windows.Forms.Button ChoiceButton;
     }
 }

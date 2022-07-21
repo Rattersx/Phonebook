@@ -285,7 +285,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddGeneralForm";
-            this.Text = "AddGeneralForm";
+            this.Text = "Добавить новую запись";
             this.Load += new System.EventHandler(this.AddGeneralForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

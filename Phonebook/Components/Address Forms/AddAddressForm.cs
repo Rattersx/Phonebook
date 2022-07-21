@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Phonebook
@@ -15,23 +10,24 @@ namespace Phonebook
         private Address _address { get; set; }
         private int _index { get; set; }
 
-        public AddAddressForm(BindingList<Address> addressList) // Добавить
-        {
-            AddressList = addressList;
-            InitializeComponent();
-        }
+        public AddAddressForm() => InitializeComponent();
+        public void InitAdd(BindingList<Address> addressList) => AddressList = addressList;
 
-        public AddAddressForm(BindingList<Address> addressList, Address address, int index) // Редактировать
+        public void InitEdit(BindingList<Address> addressList, Address address, int index)
         {
             AddressList = addressList;
             _address = address;
             _index = index;
-            InitializeComponent();
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            if(_address != null) // Редактировать
+            if (streetTB.Text == "" && houseTB.Text == "" && apartmentTB.Text == "")
+            {
+                MessageBox.Show(Properties.Resources.NoneInfoError, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if(_address != null) // Редактировать
             {
                 AddressList[_index] = new Address(streetTB.Text, houseTB.Text, apartmentTB.Text);
                 this.Close();
@@ -53,9 +49,6 @@ namespace Phonebook
             }
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void cancelButton_Click(object sender, EventArgs e) => this.Close();
     }
 }

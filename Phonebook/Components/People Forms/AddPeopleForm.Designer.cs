@@ -56,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 194);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(494, 52);
+            this.panel1.Size = new System.Drawing.Size(476, 52);
             this.panel1.TabIndex = 3;
             // 
             // cancelButton
@@ -235,12 +235,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 246);
+            this.ClientSize = new System.Drawing.Size(476, 246);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddPeopleForm";
-            this.Text = "AddPeopleForm";
+            this.Text = "Добавить нового человека";
             this.Load += new System.EventHandler(this.AddPeopleForm_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

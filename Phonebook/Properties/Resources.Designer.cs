@@ -71,6 +71,15 @@ namespace Phonebook.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Address.xml.
+        /// </summary>
+        public static string AddressPath {
+            get {
+                return ResourceManager.GetString("AddressPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap delete_icon {
@@ -87,6 +96,51 @@ namespace Phonebook.Properties {
             get {
                 object obj = ResourceManager.GetObject("edit_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Произошла ошибка загрузки файла.
+        /// </summary>
+        public static string FileUploadError {
+            get {
+                return ResourceManager.GetString("FileUploadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на General.xml.
+        /// </summary>
+        public static string GeneralPath {
+            get {
+                return ResourceManager.GetString("GeneralPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заполните хотя-бы одно поле для сохранения.
+        /// </summary>
+        public static string NoneInfoError {
+            get {
+                return ResourceManager.GetString("NoneInfoError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на People.xml.
+        /// </summary>
+        public static string PeoplePath {
+            get {
+                return ResourceManager.GetString("PeoplePath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Phone.xml.
+        /// </summary>
+        public static string PhonePath {
+            get {
+                return ResourceManager.GetString("PhonePath", resourceCulture);
             }
         }
     }

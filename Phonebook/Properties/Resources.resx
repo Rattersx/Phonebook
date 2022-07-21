@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddressPath" xml:space="preserve">
+    <value>Address.xml</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="add_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -126,5 +129,22 @@
   </data>
   <data name="edit_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FileUploadError" xml:space="preserve">
+    <value>Произошла ошибка загрузки файла</value>
+    <comment>Вызывается при ошибке во время десериализации класса</comment>
+  </data>
+  <data name="GeneralPath" xml:space="preserve">
+    <value>General.xml</value>
+  </data>
+  <data name="NoneInfoError" xml:space="preserve">
+    <value>Заполните хотя-бы одно поле для сохранения</value>
+    <comment>Вызывается при добавлении пустого элемента в General</comment>
+  </data>
+  <data name="PeoplePath" xml:space="preserve">
+    <value>People.xml</value>
+  </data>
+  <data name="PhonePath" xml:space="preserve">
+    <value>Phone.xml</value>
   </data>
 </root>

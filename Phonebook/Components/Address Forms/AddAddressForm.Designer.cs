@@ -163,7 +163,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddAddressForm";
-            this.Text = "AddAddressForm";
+            this.Text = "Добавить новый адресс";
             this.Load += new System.EventHandler(this.AddAddressForm_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -30,15 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.редактироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addressTable = new System.Windows.Forms.DataGridView();
             this.streetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.houseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apartmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addressListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addressListFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ChoiceButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.addressTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addressListBindingSource)).BeginInit();
@@ -48,35 +49,35 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem,
-            this.редактироватьToolStripMenuItem,
-            this.удалитьToolStripMenuItem});
+            this.AddToolStripMenuItem,
+            this.EditToolStripMenuItem,
+            this.DeleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(352, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // добавитьToolStripMenuItem
+            // AddToolStripMenuItem
             // 
-            this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.добавитьToolStripMenuItem.Text = "Добавить";
-            this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
+            this.AddToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.AddToolStripMenuItem.Text = "Добавить";
+            this.AddToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
             // 
-            // редактироватьToolStripMenuItem
+            // EditToolStripMenuItem
             // 
-            this.редактироватьToolStripMenuItem.Name = "редактироватьToolStripMenuItem";
-            this.редактироватьToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
-            this.редактироватьToolStripMenuItem.Text = "Редактировать";
-            this.редактироватьToolStripMenuItem.Click += new System.EventHandler(this.редактироватьToolStripMenuItem_Click);
+            this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
+            this.EditToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
+            this.EditToolStripMenuItem.Text = "Редактировать";
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
-            // удалитьToolStripMenuItem
+            // DeleteToolStripMenuItem
             // 
-            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.удалитьToolStripMenuItem.Text = "Удалить";
-            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
+            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.DeleteToolStripMenuItem.Text = "Удалить";
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // addressTable
             // 
@@ -93,7 +94,7 @@
             this.houseDataGridViewTextBoxColumn,
             this.apartmentDataGridViewTextBoxColumn});
             this.addressTable.DataSource = this.addressListBindingSource;
-            this.addressTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addressTable.Dock = System.Windows.Forms.DockStyle.Top;
             this.addressTable.Location = new System.Drawing.Point(0, 24);
             this.addressTable.MultiSelect = false;
             this.addressTable.Name = "addressTable";
@@ -134,15 +135,26 @@
             // 
             this.addressListFormBindingSource.DataSource = typeof(Phonebook.AddressListForm);
             // 
+            // ChoiceButton
+            // 
+            this.ChoiceButton.Location = new System.Drawing.Point(85, 287);
+            this.ChoiceButton.Name = "ChoiceButton";
+            this.ChoiceButton.Size = new System.Drawing.Size(180, 25);
+            this.ChoiceButton.TabIndex = 6;
+            this.ChoiceButton.Text = "Выбрать";
+            this.ChoiceButton.UseVisualStyleBackColor = true;
+            this.ChoiceButton.Click += new System.EventHandler(this.ChoiceButton_Click);
+            // 
             // AddressListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 275);
+            this.ClientSize = new System.Drawing.Size(352, 324);
+            this.Controls.Add(this.ChoiceButton);
             this.Controls.Add(this.addressTable);
             this.Controls.Add(this.menuStrip1);
             this.Name = "AddressListForm";
-            this.Text = "AddressListForm";
+            this.Text = "Список адрессов";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddressListForm_FormClosing);
             this.Load += new System.EventHandler(this.AddressListForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -158,14 +170,15 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem редактироватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AddToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
         private System.Windows.Forms.DataGridView addressTable;
         private System.Windows.Forms.BindingSource addressListFormBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn streetDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn houseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apartmentDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource addressListBindingSource;
+        private System.Windows.Forms.Button ChoiceButton;
     }
 }
